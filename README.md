@@ -51,9 +51,23 @@ This plugin provides a structured 4-phase workflow to transform ideas into produ
 
 ## Installation
 
+### Via Marketplace (Recommended)
+
+Install from [lazy-marketplace](https://github.com/lazylagom/lazy-marketplace):
+
 ```bash
-# Copy to Claude plugins directory
-cp -r imlazy-fullstack ~/.claude/plugins/
+# Clone the marketplace
+git clone https://github.com/lazylagom/lazy-marketplace.git ~/.claude/plugins/lazy-marketplace
+
+# The imlazy-fullstack plugin will be available automatically
+```
+
+### Manual Installation
+
+```bash
+# Clone directly to Claude plugins directory
+git clone https://github.com/lazylagom/lazy-marketplace.git
+cp -r lazy-marketplace/imlazy-fullstack ~/.claude/plugins/
 
 # Or use with --plugin-dir flag
 claude --plugin-dir /path/to/imlazy-fullstack
