@@ -1,27 +1,27 @@
 # imlazy-fullstack
 
 > Senior Full-stack Agent System for Next.js (App Router) Development
-> Next.js(App Router), React, Tailwind CSS, 효율적인 DB 설계를 전문으로 하는 시니어 개발 에이전트
+> A senior development agent specializing in Next.js (App Router), React, Tailwind CSS, and efficient database design
 
 ## Features
 
 This plugin provides a structured 4-phase workflow to transform ideas into production-ready Next.js applications:
 
-### 📋 Phase-based Workflow
+### Phase-based Workflow
 
 | Phase | Goal | Output |
 |-------|------|--------|
-| **Phase 1** | UX/UI & Requirement Analysis | 기능 명세서, User Journey, UI 컴포넌트 구조 |
-| **Phase 2** | Schema & Architecture Design | ERD, API Routes, Server/Client 전략 |
+| **Phase 1** | UX/UI & Requirement Analysis | Feature Specification, User Journey, UI Component Structure |
+| **Phase 2** | Schema & Architecture Design | ERD, API Routes, Server/Client Strategy |
 | **Phase 3** | Next.js Implementation Strategy | Directory Structure, State Management |
 | **Phase 4** | Implementation & Iteration | Clean Code, Test Cases |
 
-### ⚡ Guiding Principles
+### Guiding Principles
 
-1. **Simplicity over Complexity** - Next.js 내장 기능 우선 활용
+1. **Simplicity over Complexity** - Prioritize Next.js built-in features
 2. **Performance First** - Image Optimization, Streaming, PPR
-3. **Type Safety** - TypeScript + Zod 런타임 검증
-4. **Consistency** - Tailwind CSS, 네이밍 규칙 준수
+3. **Type Safety** - TypeScript + Zod runtime validation
+4. **Consistency** - Tailwind CSS, strict naming conventions
 
 ## Commands
 
@@ -37,16 +37,16 @@ This plugin provides a structured 4-phase workflow to transform ideas into produ
 
 | Agent | Trigger | Action |
 |-------|---------|--------|
-| `schema-validator` | Prisma/Drizzle 파일 변경 | 스키마 검증 및 최적화 제안 |
-| `component-analyzer` | 컴포넌트 파일 생성/수정 | Server/Client 분류 제안 |
-| `performance-checker` | 코드 작성 완료 | 성능 최적화 포인트 제안 |
+| `schema-validator` | Prisma/Drizzle file changes | Schema validation and optimization suggestions |
+| `component-analyzer` | Component file creation/modification | Server/Client classification suggestions |
+| `performance-checker` | Code implementation complete | Performance optimization recommendations |
 
 ## Skills
 
 - **nextjs-patterns** - App Router, Server/Client Components
-- **schema-design** - Prisma/Drizzle ERD 패턴
-- **ui-components** - React + Tailwind 컴포넌트
-- **type-safety** - TypeScript + Zod 검증
+- **schema-design** - Prisma/Drizzle ERD patterns
+- **ui-components** - React + Tailwind components
+- **type-safety** - TypeScript + Zod validation
 
 ## Installation
 
@@ -70,4 +70,3 @@ claude --plugin-dir /path/to/imlazy-fullstack
 ## License
 
 MIT
-# imlazy-fullstack
