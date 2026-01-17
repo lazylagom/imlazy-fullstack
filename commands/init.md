@@ -662,6 +662,81 @@ export const paginationSchema = z.object({
 import '@testing-library/jest-dom';
 ```
 
+#### .gitignore
+```
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+coverage
+.nyc_output
+playwright-report
+playwright/.cache
+test-results
+
+# Next.js
+.next
+out
+build
+.swc
+
+# Bun
+bun.lockb
+
+# Production
+dist
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+
+# IDE
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# Turbo
+.turbo
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Sentry
+.sentryclirc
+
+# Release
+CHANGELOG.md
+```
+
 #### .env.example
 ```
 # Database
