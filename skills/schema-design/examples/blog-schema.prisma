@@ -1,0 +1,179 @@
+// Blog Schema Example
+// 블로그 스키마 예제 - 사용자, 게시물, 댓글, 태그
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// User Model
+// ============================================
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  name          String?
+  image         String?
+  bio           String?
+  role          UserRole  @default(USER)
+
+  // Relations
+  posts         Post[]
+  comments      Comment[]
+  likes         Like[]
+
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("users")
+}
+
+enum UserRole {
+  USER
+  AUTHOR
+  ADMIN
+}
+
+// ============================================
+// Post Model
+// ============================================
+
+model Post {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  excerpt     String?
+  content     String
+  coverImage  String?
+  published   Boolean    @default(false)
+  publishedAt DateTime?
+
+  // Relations
+  author      User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId    String
+  category    Category?  @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+  tags        PostTag[]
+  comments    Comment[]
+  likes       Like[]
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  // Timestamps
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([authorId])
+  @@index([categoryId])
+  @@index([published, publishedAt])
+  @@index([slug])
+  @@map("posts")
+}
+
+// ============================================
+// Category Model
+// ============================================
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  posts       Post[]
+  createdAt   DateTime @default(now())
+
+  @@map("categories")
+}
+
+// ============================================
+// Tag Model (Many-to-Many with Post)
+// ============================================
+
+model Tag {
+  id    String    @id @default(cuid())
+  name  String    @unique
+  slug  String    @unique
+  posts PostTag[]
+
+  @@map("tags")
+}
+
+model PostTag {
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId     String
+  tag        Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId      String
+  assignedAt DateTime @default(now())
+
+  @@id([postId, tagId])
+  @@map("post_tags")
+}
+
+// ============================================
+// Comment Model (Self-referencing for replies)
+// ============================================
+
+model Comment {
+  id        String    @id @default(cuid())
+  content   String
+
+  // Relations
+  author    User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+  post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+
+  // Self-relation for replies
+  parent    Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  parentId  String?
+  replies   Comment[] @relation("CommentReplies")
+
+  // Timestamps
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([postId])
+  @@index([authorId])
+  @@index([parentId])
+  @@map("comments")
+}
+
+// ============================================
+// Like Model (Polymorphic-like pattern)
+// ============================================
+
+model Like {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])  // 사용자당 게시물 하나만 좋아요
+  @@map("likes")
+}
+
+// ============================================
+// View Model (Analytics)
+// ============================================
+
+model View {
+  id        String   @id @default(cuid())
+  postId    String
+  sessionId String   // anonymous session tracking
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+  @@index([createdAt])
+  @@map("views")
+}
