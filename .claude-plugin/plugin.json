@@ -1,18 +1,16 @@
 {
-  "name": "imlazy-fullstack",
-  "version": "0.1.0",
-  "description": "Senior Full-stack Agent System for Next.js (App Router) development with 4-phase workflow: UX/UI Analysis, Schema Design, Implementation Strategy, and Code Generation",
+  "name": "imlazy-develop",
+  "version": "1.0.0",
+  "description": "Full-stack development workflow for Next.js with 4-phase system and auto-validation agents",
   "author": {
     "name": "imlazy",
     "email": "dev@imlazy.dev"
   },
   "keywords": [
     "nextjs",
-    "react",
-    "typescript",
-    "tailwind",
+    "development",
+    "app-router",
     "prisma",
-    "fullstack",
-    "app-router"
+    "fullstack"
   ]
 }

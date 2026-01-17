@@ -1,15 +1,15 @@
-# CLAUDE.md
+# imlazy-develop
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Next.js 4-phase development workflow plugin with auto-validation agents.
 
 ## Overview
 
-This is a Claude Code plugin (`imlazy-fullstack`) that provides a structured 4-phase workflow for Next.js App Router development. It transforms ideas into production-ready applications through UX/UI analysis, schema design, implementation strategy, and code generation.
+This plugin provides a structured 4-phase workflow for developing features in Next.js App Router projects. It guides you through requirement analysis, schema design, implementation strategy, and code generation.
 
 ## Plugin Structure
 
 ```
-imlazy-fullstack/
+imlazy-develop/
 ├── .claude-plugin/plugin.json    # Plugin manifest
 ├── commands/                     # Slash commands (/develop, /phase1-4)
 ├── skills/                       # Reference documentation
@@ -28,12 +28,11 @@ imlazy-fullstack/
 
 | Command | Purpose |
 |---------|---------|
-| `/imlazy-fullstack:init` | Initialize new Next.js project with full stack (shadcn, prisma, supabase, etc.) |
-| `/imlazy-fullstack:develop` | Run complete 4-phase workflow |
-| `/imlazy-fullstack:phase1` | UX/UI & Requirement Analysis |
-| `/imlazy-fullstack:phase2` | Schema & Architecture Design |
-| `/imlazy-fullstack:phase3` | Next.js Implementation Strategy |
-| `/imlazy-fullstack:phase4` | Implementation & Iteration |
+| `/imlazy-develop:develop` | Run complete 4-phase workflow |
+| `/imlazy-develop:phase1` | UX/UI & Requirement Analysis |
+| `/imlazy-develop:phase2` | Schema & Architecture Design |
+| `/imlazy-develop:phase3` | Next.js Implementation Strategy |
+| `/imlazy-develop:phase4` | Implementation & Iteration |
 
 ## 4-Phase Workflow
 
@@ -91,3 +90,7 @@ The plugin includes hooks that automatically trigger agents after file edits:
 - **Validation**: Zod schemas
 - **State**: Zustand (client), React Query (server)
 - **Forms**: React Hook Form with zodResolver
+
+## Related Plugins
+
+- **imlazy-init**: Project initialization and scaffolding (use this first for new projects)
