@@ -28,6 +28,7 @@ imlazy-fullstack/
 
 | Command | Purpose |
 |---------|---------|
+| `/imlazy-fullstack:init` | Initialize new Next.js project with full stack (shadcn, prisma, supabase, etc.) |
 | `/imlazy-fullstack:develop` | Run complete 4-phase workflow |
 | `/imlazy-fullstack:phase1` | UX/UI & Requirement Analysis |
 | `/imlazy-fullstack:phase2` | Schema & Architecture Design |

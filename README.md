@@ -27,6 +27,7 @@ This plugin provides a structured 4-phase workflow to transform ideas into produ
 
 | Command | Description |
 |---------|-------------|
+| `/imlazy-fullstack:init` | Initialize new Next.js project with full stack |
 | `/imlazy-fullstack:develop` | Run complete 4-phase workflow |
 | `/imlazy-fullstack:phase1` | UX/UI & Requirement Analysis |
 | `/imlazy-fullstack:phase2` | Schema & Architecture Design |
@@ -60,12 +61,22 @@ claude --plugin-dir /path/to/imlazy-fullstack
 
 ## Tech Stack
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Runtime**: Bun
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Database**: Prisma / Drizzle / Supabase
-- **State**: Zustand / React Query
+- **UI**: shadcn/ui, Tailwind CSS
+- **Icons**: hugeicons-react
+- **Animation**: framer-motion
+- **Theme**: next-themes
+- **Auth**: next-auth (Auth.js v5)
+- **State**: Zustand, @tanstack/react-query
+- **Forms**: react-hook-form, @hookform/resolvers
 - **Validation**: Zod
+- **Database**: Prisma, Supabase
+- **Linting**: Biome
+- **Testing**: Vitest, Playwright
+- **Performance**: web-vitals
+- **Release**: release-it
 
 ## License
 
