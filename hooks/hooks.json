@@ -1,13 +1,16 @@
 {
-  "PostToolUse": [
-    {
-      "matcher": "Write|Edit",
-      "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "Check if the file that was just written or edited matches any of these patterns:\n\n1. **Prisma schema** (*.prisma files, especially prisma/schema.prisma)\n2. **Drizzle schema** (schema.ts, lib/db/schema*.ts)\n3. **React components** (*.tsx files in components/ or app/ directories)\n4. **Next.js pages/routes** (page.tsx, route.ts in app/ directory)\n\nIf the file matches:\n- For Prisma/Drizzle schemas: Use the schema-validator agent to validate the schema\n- For React components: Use the component-analyzer agent to analyze Server/Client classification\n- For completed pages/routes: Use the performance-checker agent to check for optimizations\n\nIf the file doesn't match any pattern, or if this is a minor edit (typo fix, comment), respond with 'No action needed.'\n\nBe proactive but not intrusive. Only trigger agents for meaningful changes."
-        }
-      ]
-    }
-  ]
+  "description": "Auto-trigger validation agents for schema and component changes",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if the file that was just written or edited matches any of these patterns:\n\n1. **Prisma schema** (*.prisma files, especially prisma/schema.prisma)\n2. **Drizzle schema** (schema.ts, lib/db/schema*.ts)\n3. **React components** (*.tsx files in components/ or app/ directories)\n4. **Next.js pages/routes** (page.tsx, route.ts in app/ directory)\n\nIf the file matches:\n- For Prisma/Drizzle schemas: Use the schema-validator agent to validate the schema\n- For React components: Use the component-analyzer agent to analyze Server/Client classification\n- For completed pages/routes: Use the performance-checker agent to check for optimizations\n\nIf the file doesn't match any pattern, or if this is a minor edit (typo fix, comment), respond with 'No action needed.'\n\nBe proactive but not intrusive. Only trigger agents for meaningful changes."
+          }
+        ]
+      }
+    ]
+  }
 }
