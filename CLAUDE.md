@@ -1,4 +1,4 @@
-# imlazy-develop
+# imlazy-fullstack
 
 Next.js 4-phase development workflow plugin with auto-validation agents.
 
@@ -9,7 +9,7 @@ This plugin provides a structured 4-phase workflow for developing features in Ne
 ## Plugin Structure
 
 ```
-imlazy-develop/
+imlazy-fullstack/
 ├── .claude-plugin/plugin.json    # Plugin manifest
 ├── commands/                     # Slash commands (/develop, /phase1-4)
 ├── skills/                       # Reference documentation
@@ -28,11 +28,11 @@ imlazy-develop/
 
 | Command | Purpose |
 |---------|---------|
-| `/imlazy-develop:develop` | Run complete 4-phase workflow |
-| `/imlazy-develop:phase1` | UX/UI & Requirement Analysis |
-| `/imlazy-develop:phase2` | Schema & Architecture Design |
-| `/imlazy-develop:phase3` | Next.js Implementation Strategy |
-| `/imlazy-develop:phase4` | Implementation & Iteration |
+| `/imlazy-fullstack:develop` | Run complete 4-phase workflow |
+| `/imlazy-fullstack:phase1` | UX/UI & Requirement Analysis |
+| `/imlazy-fullstack:phase2` | Schema & Architecture Design |
+| `/imlazy-fullstack:phase3` | Next.js Implementation Strategy |
+| `/imlazy-fullstack:phase4` | Implementation & Iteration |
 
 ## 4-Phase Workflow
 
